@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nessma Hossam | Computer Science & AI Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric-blue: #0066FF;
+            --deep-purple: #6B00FF;
+            --vibrant-coral: #FF3366;
+            --neon-cyan: #00E5FF;
+            --bright-yellow: #FFD600;
+            --dark-bg: #0A0E1A;
+            --darker-bg: #060914;
+            --card-bg: #131824;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8C1D9;
+            --gradient-1: linear-gradient(135deg, var(--electric-blue), var(--deep-purple));
+            --gradient-2: linear-gradient(135deg, var(--vibrant-coral), var(--electric-blue));
+            --gradient-3: linear-gradient(135deg, var(--neon-cyan), var(--electric-blue));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 50%, rgba(107, 0, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 90%, rgba(255, 51, 102, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(5deg); }
+            66% { transform: translate(-20px, 20px) rotate(-5deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--electric-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .gradient-text {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            animation: slideInLeft 1s ease-out 0.2s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: slideInLeft 1s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--electric-blue);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .visual-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--electric-blue);
+            background: rgba(0, 102, 255, 0.1);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 4px;
+            background: var(--gradient-2);
+        }
+
+        .about-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-cyan);
+        }
+
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: rgba(0, 229, 255, 0.05);
+            border-left: 3px solid var(--neon-cyan);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--electric-blue);
+            box-shadow: 0 20px 50px rgba(0, 102, 255, 0.2);
+        }
+
+        .skill-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .skill-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-list li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--electric-blue);
+            font-weight: bold;
+        }
+
+        /* Project Section */
+        .project-showcase {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-2);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .project-info h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: rgba(255, 51, 102, 0.1);
+            color: var(--vibrant-coral);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .highlight-value {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--vibrant-coral);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: rgba(0, 229, 255, 0.1);
+            color: var(--neon-cyan);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+        }
+
+        .project-visual {
+            background: var(--darker-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .visual-metric {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-value {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-2);
+            transition: width 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateX(8px);
+            border-color: var(--vibrant-coral);
+        }
+
+        .achievement-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .achievement-card h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            background: var(--card-bg);
+            border-radius: 32px;
+            padding: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .contact-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-1);
+        }
+
+        .contact-container h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-container p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            min-width: 200px;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--electric-blue);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--electric-blue);
+        }
+
+        .contact-label {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker-bg);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content,
+            .about-grid,
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .project-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">Nessma Hossam</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Computer Science Graduate<br>
+                    <span class="gradient-text">Passionate About AI & Data</span>
+                </h1>
+                <p>Computer Science graduate passionate about data analysis, machine learning, and artificial intelligence, with a strong interest in building intelligent, data-driven solutions that solve real-world problems and create meaningful impact.</p>
+                <div class="cta-buttons">
+                    <a href="#project" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card">
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; text-align: center; margin-bottom: 2rem;">Quick Stats</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">97%</span>
+                            <span class="stat-label">EEG Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">93%</span>
+                            <span class="stat-label">Clinical Accuracy</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">A+</span>
+                            <span class="stat-label">Project Grade</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Finals</span>
+                            <span class="stat-label">Olympics Qualified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <span class="section-tag">Get To Know Me</span>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">A disciplined problem-solver with genuine curiosity and passion for turning complex data into practical solutions</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Who I Am</h3>
+                <p>I am a Computer Science graduate with a strong passion for data analysis, machine learning, and artificial intelligence. I enjoy working with complex data, discovering patterns, and transforming raw information into practical and impactful solutions.</p>
+                <p>What distinguishes me is my discipline, persistence, and genuine curiosity, as I continuously seek to learn new technologies and improve my skills in an ever-evolving tech environment.</p>
+                <div class="highlight-box">
+                    <p><strong>Core Values:</strong> Discipline, persistence, continuous learning, and creating meaningful impact through technology.</p>
+                </div>
+            </div>
+            <div class="about-card">
+                <h3>What I Do</h3>
+                <p>I focus on developing data-driven and AI-based systems that convert raw data into actionable insights. My experience includes data preprocessing, building and evaluating machine learning models, and working with real-world datasets.</p>
+                <p>I have a particular interest in applying artificial intelligence to healthcare and real-life problem domains, where technology can make a genuine difference in people's lives.</p>
+                <div class="highlight-box">
+                    <p><strong>My Focus:</strong> Transforming data into intelligent solutions through machine learning, with special emphasis on healthcare applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-tag">My Expertise</span>
+            <h2 class="section-title">Skills & Interests</h2>
+            <p class="section-subtitle">A solid technical foundation combined with strong analytical and problem-solving abilities</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="skill-icon">🤖</span>
+                <h3>Machine Learning</h3>
+                <ul class="skill-list">
+                    <li>Supervised & Unsupervised Learning</li>
+                    <li>Neural Networks & Deep Learning</li>
+                    <li>Model Optimization & Validation</li>
+                    <li>Feature Engineering</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">📊</span>
+                <h3>Data Analysis</h3>
+                <ul class="skill-list">
+                    <li>Statistical Analysis & Modeling</li>
+                    <li>Data Visualization</li>
+                    <li>Exploratory Data Analysis</li>
+                    <li>Pattern Recognition</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">🧠</span>
+                <h3>Artificial Intelligence</h3>
+                <ul class="skill-list">
+                    <li>AI Algorithm Development</li>
+                    <li>Signal Processing (EEG)</li>
+                    <li>Predictive Modeling</li>
+                    <li>Classification Systems</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">💻</span>
+                <h3>Technical Skills</h3>
+                <ul class="skill-list">
+                    <li>Python Programming</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>Software Development</li>
+                    <li>Problem-Solving Methodologies</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">🎯</span>
+                <h3>Core Strengths</h3>
+                <ul class="skill-list">
+                    <li>Analytical Thinking</li>
+                    <li>Research & Development</li>
+                    <li>Self-Motivated Learning</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">⚡</span>
+                <h3>Personal Attributes</h3>
+                <ul class="skill-list">
+                    <li>Highly Disciplined</li>
+                    <li>Detail-Oriented</li>
+                    <li>Adaptable & Innovative</li>
+                    <li>Results-Driven</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Project Section -->
+    <section id="project">
+        <div class="section-header">
+            <span class="section-tag">Featured Work</span>
+            <h2 class="section-title">Graduation Project</h2>
+            <p class="section-subtitle">An award-winning medical AI system developed in collaboration with Al-Qasr Al-Eini Hospital</p>
+        </div>
+        <div class="project-showcase">
+            <div class="project-content">
+                <div class="project-info">
+                    <span class="project-tag">Healthcare AI</span>
+                    <h3>Epileptic & Pseudo-Epileptic Diagnosis System</h3>
+                    <p>I developed a machine learning-based system to distinguish between epileptic and pseudo-epileptic cases using clinical data and EEG signal analysis in collaboration with Al-Qasr Al-Eini Hospital.</p>
+                    <p>The project achieved high accuracy and demonstrated the effectiveness of artificial intelligence in medical diagnostics, strengthening my experience in data preprocessing, model evaluation, and working on real-world healthcare challenges.</p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-value">93%</span>
+                            <span class="highlight-label">Clinical Data Accuracy</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-value">97%</span>
+                            <span class="highlight-label">EEG Signal Accuracy</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-value">A+</span>
+                            <span class="highlight-label">Final Project Grade</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-value">Finals</span>
+                            <span class="highlight-label">Olympics Qualified</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Machine Learning</span>
+                        <span class="tech-badge">Signal Processing</span>
+                        <span class="tech-badge">EEG Analysis</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Healthcare AI</span>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="visual-metric">
+                        <span class="metric-icon">🏥</span>
+                        <span class="metric-value">Hospital</span>
+                        <span class="metric-label">Al-Qasr Al-Eini Collaboration</span>
+                    </div>
+                    <div class="visual-metric">
+                        <span class="metric-icon">🏆</span>
+                        <span class="metric-value">Olympics</span>
+                        <span class="metric-label">Finals Qualification</span>
+                    </div>
+                    <div class="visual-metric">
+                        <span class="metric-icon">🧬</span>
+                        <span class="metric-value">Real Data</span>
+                        <span class="metric-label">Clinical & EEG Signals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="section-header">
+            <span class="section-tag">Recognition</span>
+            <h2 class="section-title">Achievements & Certificates</h2>
+            <p class="section-subtitle">My achievements reflect commitment to excellence, continuous learning, and applying AI to solve real-world problems</p>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card">
+                <span class="achievement-icon">🎓</span>
+                <h3>Bachelor's in Computer Science</h3>
+                <p>Successfully completed a comprehensive Computer Science degree, building a strong foundation in data structures, algorithms, software engineering, machine learning, and artificial intelligence principles.</p>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">⭐</span>
+                <h3>A+ Graduation Project</h3>
+                <p>Received the highest grade for developing a machine learning-based medical diagnostic system that demonstrated strong technical execution, high accuracy, and practical applicability in real-world healthcare settings.</p>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">🏆</span>
+                <h3>Computer & AI Olympics Finalist</h3>
+                <p>The graduation project qualified for the finals of the Computer and Artificial Intelligence Olympics at Damietta University, competing among top projects and demonstrating excellence in AI innovation.</p>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">🤝</span>
+                <h3>Hospital Collaboration</h3>
+                <p>Successfully collaborated with Al-Qasr Al-Eini Hospital, one of Egypt's leading medical institutions, to develop and validate an AI diagnostic system using real clinical data and working alongside medical professionals.</p>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">📈</span>
+                <h3>High-Accuracy Machine Learning Models</h3>
+                <p>Achieved strong accuracy rates of 93% on clinical data and 97% on EEG signals in medical diagnosis, demonstrating capability in developing reliable machine learning systems for critical healthcare applications.</p>
+            </div>
+            <div class="achievement-card">
+                <span class="achievement-icon">💡</span>
+                <h3>Innovation in Healthcare AI</h3>
+                <p>Applied machine learning and signal processing techniques to advance medical diagnostics, demonstrating the practical value of artificial intelligence in solving complex healthcare challenges and improving patient outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-container">
+            <span class="section-tag">Let's Connect</span>
+            <h2>Get In Touch</h2>
+            <p>I am open to new opportunities, collaborations, and professional discussions related to data analysis, machine learning, and artificial intelligence. Feel free to reach out through the contact methods provided below.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <span class="contact-icon">📧</span>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">Nessmahossam888@gmail.com</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">💼</span>
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/yourprofile</span>
+                </div>
+                <div class="contact-method">
+                    <span class="contact-icon">💻</span>
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">github.com/yourusername</span>
+                </div>
+            </div>
+            <a href="mailto:Nessmahossam888@gmail.com" class="btn btn-primary">Send Me a Message</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nessma Hossam. Built with passion for data, AI, and innovation.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.anima
